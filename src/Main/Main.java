@@ -4,17 +4,20 @@ import Controller.LeftCommand;
 import Controller.RightCommand;
 import Model.Rectangle;
 import View.MainFrame;
+import View.SwingRectangleDialog;
 import View.SwingRectangleDisplay;
 
 public class Main {
 
     public static void main(String[] args) {
-        Rectangle r1 = new Rectangle(300,100);
+        Rectangle r = new Rectangle(50,10);
         MainFrame mainFrame = new MainFrame();
-        SwingRectangleDisplay swingRectangleDisplay = new SwingRectangleDisplay(r1);
+        SwingRectangleDisplay swingRectangleDisplay = new SwingRectangleDisplay();
+        SwingRectangleDialog swingRectangleDialog = new SwingRectangleDialog();
         mainFrame.addSwingRectangleDisplay(swingRectangleDisplay);
-        mainFrame.addCommand("Left", new LeftCommand());
-        mainFrame.addCommand("Right", new RightCommand());
+        mainFrame.addRectangleDialog(swingRectangleDialog);
+        mainFrame.addCommand("Left", new LeftCommand(swingRectangleDisplay,swingRectangleDialog,r));
+        mainFrame.addCommand("Right", new RightCommand(swingRectangleDisplay,swingRectangleDialog,r));
         mainFrame.execute();
     }
     

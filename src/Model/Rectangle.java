@@ -10,11 +10,6 @@ public class Rectangle extends Figure{
         this.heigth = heigth;
     }
     
-    @Override
-    public String getName() {
-        return "Rectangle";
-    }
-    
     public double getBase() {
         return base;
     }
@@ -32,7 +27,12 @@ public class Rectangle extends Figure{
     }
 
     @Override
-    public double getArea() {
-        return this.getBase() * this.getArea();
+    public Area createArea() {
+        return new RectangleArea(this.getBase(),this.getHeigth());
+    }
+    
+    @Override
+    public String getName(){
+        return "Rectangle";
     }
 }

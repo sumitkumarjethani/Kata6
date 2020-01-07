@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 public class MainFrame extends JFrame{
     private final Map<String,String> labels;
     private final Map<String,Command> commands;
+    private final JPanel toolbar;
     
     public MainFrame(){
         this.setTitle("Figure Mover");
@@ -22,11 +23,13 @@ public class MainFrame extends JFrame{
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-        this.setResizable(false);
+        this.setResizable(true);
         labels = new HashMap<>();
         commands = new HashMap<>();
+        toolbar = new JPanel();
         initLabels();
-        this.add(toolbar(),BorderLayout.SOUTH);
+        initToolbar();
+        this.add(toolbar,BorderLayout.SOUTH);
     }
     
     public void execute(){
@@ -38,12 +41,10 @@ public class MainFrame extends JFrame{
         labels.put("Right", "Move Right");
     }
 
-    private JPanel toolbar() {
-        JPanel toolbar = new JPanel();
+    private void initToolbar() {
         toolbar.setLayout(new FlowLayout(FlowLayout.CENTER));
         toolbar.add(button("Left"));
         toolbar.add(button("Right"));
-        return toolbar;
     }
 
     private JButton button(String id) {
@@ -62,6 +63,11 @@ public class MainFrame extends JFrame{
     }
     
     public void addSwingRectangleDisplay(SwingRectangleDisplay swingRectangleDisplay){
-        this.add(swingRectangleDisplay, BorderLayout.CENTER);
+        this.add(swingRectangleDisplay,BorderLayout.CENTER);
     }
+    
+    public void addRectangleDialog(SwingRectangleDialog rectangleDialog){
+        toolbar.add(rectangleDialog);
+    }
+    
 }
