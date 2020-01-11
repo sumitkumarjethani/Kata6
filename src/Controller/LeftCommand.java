@@ -26,7 +26,7 @@ public class LeftCommand implements Command{
             r.setHeigth(this.swingRectangleDialog.getHeightTextField());
             r.setPosition(new Point(-10,0));
         }else{
-            JOptionPane.showMessageDialog(this.swingRectangleDisplay, "The rectangle does nos fit in the screen");
+            JOptionPane.showMessageDialog(this.swingRectangleDisplay, "The rectangle does not fits in the screen");
         }
     }
     

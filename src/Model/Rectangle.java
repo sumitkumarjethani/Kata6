@@ -47,6 +47,10 @@ public class Rectangle extends Figure{
         this.notifyObservers();
     }
     
+    public void setPositionScreen(Point position){
+        this.position.setPositionScreen(position);
+    }
+    
     @Override
     public String getName(){
         return "Rectangle";

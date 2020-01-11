@@ -21,6 +21,11 @@ public class Position {
             changePositionRight(point,r);
         }
     }
+    
+    public void setPositionScreen(Point position){
+        this.position.x = position.x;
+        this.position.y = position.y;
+    }
 
     private void changePositionLeft(Point point) {
         if(this.position.x + point.x > 0){

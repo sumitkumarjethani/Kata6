@@ -26,7 +26,7 @@ public class RightCommand implements Command{
             r.setHeigth(this.swingRectangleDialog.getHeightTextField());
             r.setPosition(new Point(10,this.swingRectangleDisplay.getWidth()));
         }else{
-            JOptionPane.showMessageDialog(this.swingRectangleDisplay, "The rectangle does nos fit in the screen");
+            JOptionPane.showMessageDialog(this.swingRectangleDisplay, "The rectangle does not fits in the screen");
         }
     }
 }
