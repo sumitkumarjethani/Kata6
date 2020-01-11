@@ -13,8 +13,9 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JPanel;
 
 public class MainFrame extends JFrame{
-    private final Map<String,String> labels;
-    private final Map<String,Command> commands;
+    
+    private final Map<String, String> labels;
+    private final Map<String, Command> commands;
     private final JPanel toolbar;
     
     public MainFrame(){
@@ -29,11 +30,23 @@ public class MainFrame extends JFrame{
         toolbar = new JPanel();
         initLabels();
         initToolbar();
-        this.add(toolbar,BorderLayout.SOUTH);
+        this.add(this.toolbar,BorderLayout.SOUTH);
     }
     
     public void execute(){
         this.setVisible(true);
+    }
+    
+    public void addCommand(String name, Command command){
+        commands.put(name, command);
+    }
+    
+    public void addSwingRectangleDisplay(SwingRectangleDisplay swingRectangleDisplay){
+        this.add(swingRectangleDisplay,BorderLayout.CENTER);
+    }
+    
+    public void addRectangleDialog(SwingRectangleDialog rectangleDialog){
+        this.toolbar.add(rectangleDialog);
     }
 
     private void initLabels() {
@@ -42,9 +55,9 @@ public class MainFrame extends JFrame{
     }
 
     private void initToolbar() {
-        toolbar.setLayout(new FlowLayout(FlowLayout.CENTER));
-        toolbar.add(button("Left"));
-        toolbar.add(button("Right"));
+        this.toolbar.setLayout(new FlowLayout(FlowLayout.CENTER));
+        this.toolbar.add(button("Left"));
+        this.toolbar.add(button("Right"));
     }
 
     private JButton button(String id) {
@@ -57,17 +70,4 @@ public class MainFrame extends JFrame{
         });
         return button;
     }
-    
-    public void addCommand(String name, Command command){
-        commands.put(name, command);
-    }
-    
-    public void addSwingRectangleDisplay(SwingRectangleDisplay swingRectangleDisplay){
-        this.add(swingRectangleDisplay,BorderLayout.CENTER);
-    }
-    
-    public void addRectangleDialog(SwingRectangleDialog rectangleDialog){
-        toolbar.add(rectangleDialog);
-    }
-    
 }

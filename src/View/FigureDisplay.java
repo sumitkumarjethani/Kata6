@@ -1,7 +1,10 @@
 package View;
 
-import Model.Figure;
+import java.awt.Point;
+
 
 public interface FigureDisplay {
-    public void display(Figure figure, int x);
+    
+    public void display(Point rectangle, Point position);
+    
 }

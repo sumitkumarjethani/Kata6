@@ -3,6 +3,7 @@ package Controller;
 import Model.Rectangle;
 import View.SwingRectangleDialog;
 import View.SwingRectangleDisplay;
+import java.awt.Point;
 import javax.swing.JOptionPane;
 
 public class LeftCommand implements Command{
@@ -23,7 +24,7 @@ public class LeftCommand implements Command{
                 this.swingRectangleDialog.getHeightTextField() < this.swingRectangleDisplay.getHeight()){
             r.setBase(this.swingRectangleDialog.getBaseTextField());
             r.setHeigth(this.swingRectangleDialog.getHeightTextField());
-            this.swingRectangleDisplay.display(r,-10);
+            r.setPosition(new Point(-10,0));
         }else{
             JOptionPane.showMessageDialog(this.swingRectangleDisplay, "The rectangle does nos fit in the screen");
         }
