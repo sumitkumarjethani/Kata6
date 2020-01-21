@@ -1,4 +1,4 @@
-package view;
+package swing;
 
 import java.awt.FlowLayout;
 import javax.swing.JLabel;

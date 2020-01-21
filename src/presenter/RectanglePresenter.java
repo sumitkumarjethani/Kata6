@@ -1,10 +1,11 @@
 package presenter;
 
+import observer.Observer;
 import model.Rectangle;
 import view.FigureDisplay;
-import view.SwingRectangleDisplay;
+import swing.SwingRectangleDisplay;
 import java.awt.Point;
-import view.SwingRectangleDialog;
+import swing.SwingRectangleDialog;
 
 public class RectanglePresenter implements Observer{
 

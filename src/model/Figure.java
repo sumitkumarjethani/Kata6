@@ -1,6 +1,6 @@
 package model;
 
-import presenter.Observer;
+import observer.Observer;
 
 public interface Figure {
     public void addObserver(Observer o);

@@ -1,4 +1,4 @@
-package presenter;
+package observer;
 
 public interface Observer {
     

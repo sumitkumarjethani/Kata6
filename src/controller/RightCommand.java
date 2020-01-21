@@ -1,8 +1,8 @@
 package controller;
 
 import model.Rectangle;
-import view.SwingRectangleDialog;
-import view.SwingRectangleDisplay;
+import swing.SwingRectangleDialog;
+import swing.SwingRectangleDisplay;
 import java.awt.Point;
 import javax.swing.JOptionPane;
 import presenter.RectanglePresenter;

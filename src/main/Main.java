@@ -4,9 +4,9 @@ import controller.LeftCommand;
 import controller.RightCommand;
 import model.Rectangle;
 import presenter.RectanglePresenter;
-import view.MainFrame;
-import view.SwingRectangleDialog;
-import view.SwingRectangleDisplay;
+import swing.MainFrame;
+import swing.SwingRectangleDialog;
+import swing.SwingRectangleDisplay;
 import java.awt.Point;
 
 public class Main {
