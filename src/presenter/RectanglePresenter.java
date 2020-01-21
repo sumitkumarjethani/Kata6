@@ -21,16 +21,8 @@ public class RectanglePresenter implements Observer{
             @Override
             public void newPosition(Point point) {
                 rectangle.setPosition(point);
-                //rectangle.setPosition(checkPosition(point));
             }
         });             
-    }
-    
-    private Point checkPosition(Point point){
-        //if(point.x < 0) return new Point((point.x+this.rectangle.getBase()),this.rectangle.getHeigth());
-        //if(point.y < 0) return new Point(point.x, (point.y + this.rectangle.getHeigth()));
-        //if(point.x > this.swingRectangleDisplay.getWidth()) return new Point((2*point.x - this.rectangle.getBase()),point.y);
-        return new Point(point.x, point.y);
     }
     
     @Override
