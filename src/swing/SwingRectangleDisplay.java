@@ -1,13 +1,13 @@
 package swing;
 
-import java.awt.Point;
+import architecture.model.Point;
+import architecture.view.FigureDisplay;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
-import view.FigureDisplay;
 
 public class SwingRectangleDisplay extends JPanel implements FigureDisplay{
     
@@ -17,22 +17,28 @@ public class SwingRectangleDisplay extends JPanel implements FigureDisplay{
     private Point position;
     
     public SwingRectangleDisplay(){
+        this.setSize(400,300);
         this.addMouseListener(mouseListener());
         this.addMouseMotionListener(mouseMotionListener());
     }
     
     @Override
-    public void display(Point dimension ,Point position) {
-        this.rectangle = dimension;
+    public void display(Point[] points ,Point position) {
+        this.rectangle = points[0];
         this.position = position;
         this.getGraphics().clearRect(0, 0, this.getWidth(), this.getHeight());
-        this.getGraphics().drawRect(this.position.x, this.position.y, this.rectangle.x, this.rectangle.y);
-        this.getGraphics().fillRect(this.position.x, this.position.y, this.rectangle.x, this.rectangle.y);
+        this.getGraphics().drawRect((int)this.position.getX(), (int)this.position.getY(), (int)this.rectangle.getX(), (int)this.rectangle.getY());
+        this.getGraphics().fillRect((int)this.position.getX(), (int)this.position.getY(), (int)this.rectangle.getX(), (int)this.rectangle.getY());
     }
-
+    
     @Override
     public void addListener(Listener listener) {
         listeners.add(listener);
+    }
+    
+    @Override
+    public Point getDisplaySize(){
+        return new Point(this.getWidth(),this.getHeight());
     }
 
     private MouseListener mouseListener() {
@@ -66,7 +72,7 @@ public class SwingRectangleDisplay extends JPanel implements FigureDisplay{
 
             private boolean isInsideRectangle(int x, int y) {
                 if(position == null || rectangle == null) return false;
-                if(x < position.x || x > position.x + rectangle.x || y < position.y || y > position.y + rectangle.y){
+                if(x < position.getX() || x > position.getX() + rectangle.getX() || y < position.getY() || y > position.getY() + rectangle.getY()){
                     return false;
                 }else{
                     return true;
@@ -90,4 +96,5 @@ public class SwingRectangleDisplay extends JPanel implements FigureDisplay{
             }
         };
     }
+
 }

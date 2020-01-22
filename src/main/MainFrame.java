@@ -1,7 +1,8 @@
-package swing;
+package main;
 
-import swing.SwingRectangleDialog;
-import controller.Command;
+import architecture.controller.Command;
+import architecture.view.*;
+import swing.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -42,12 +43,12 @@ public class MainFrame extends JFrame{
         commands.put(name, command);
     }
     
-    public void addSwingRectangleDisplay(SwingRectangleDisplay swingRectangleDisplay){
-        this.add(swingRectangleDisplay,BorderLayout.CENTER);
+    public void addFigureDisplay(FigureDisplay figureDisplay){
+        this.add((SwingRectangleDisplay)figureDisplay,BorderLayout.CENTER);
     }
     
-    public void addRectangleDialog(SwingRectangleDialog rectangleDialog){
-        this.toolbar.add(rectangleDialog);
+    public void addFigureDialog(FigureDialog figureDialog){
+        this.toolbar.add((SwingRectangleDialog)figureDialog);
     }
 
     private void initLabels() {

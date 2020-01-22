@@ -1,10 +1,8 @@
-package model;
+package architecture.model;
 
-import observer.Observer;
-import java.awt.Point;
+import architecture.observer.Observer;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class Rectangle implements Figure{
     
@@ -13,7 +11,7 @@ public class Rectangle implements Figure{
     private Point position;
     private final List<Observer> observers;
     
-    public Rectangle(double base, double heigth,Point position) {
+    public Rectangle(double base, double heigth, Point position) {
         this.base = base;
         this.heigth = heigth;
         this.position = position;

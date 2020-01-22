@@ -1,6 +1,6 @@
-package model;
+package architecture.model;
 
-import observer.Observer;
+import architecture.observer.Observer;
 
 public interface Figure {
     public void addObserver(Observer o);

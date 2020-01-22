@@ -1,11 +1,13 @@
 package swing;
 
+import architecture.model.Point;
+import architecture.view.FigureDialog;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class SwingRectangleDialog extends JPanel{
+public class SwingRectangleDialog extends JPanel implements FigureDialog{
     
     private final JTextField base;
     private final JTextField height;
@@ -17,8 +19,13 @@ public class SwingRectangleDialog extends JPanel{
         initToolbar();
     }
  
+    @Override
+    public Point[] getPoints() {
+       Point[] points = {new Point(this.getBaseTextField(),this.getHeightTextField())};
+       return points;
+    }
     
-    public double getBaseTextField() {
+    private double getBaseTextField() {
         if(base.getText().matches("^[+]?([0-9]+(?:[\\.][0-9]*)?|\\.[0-9]+)$")){
              return Double.parseDouble(base.getText());
         }else{
@@ -26,7 +33,7 @@ public class SwingRectangleDialog extends JPanel{
         }
     }
     
-    public double getHeightTextField(){
+    private double getHeightTextField(){
         if(height.getText().matches("^[+]?([0-9]+(?:[\\.][0-9]*)?|\\.[0-9]+)$")){
              return Double.parseDouble(height.getText());
         }else{
